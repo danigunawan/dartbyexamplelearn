@@ -1,0 +1,34 @@
+/// Abstract classes can't be instantiated,
+/// but can contain some implementation.
+abstract class Animal {
+  String name;
+  Animal(this.name);
+  String get noise;
+}
+
+/// Classes can be extended to share functionality
+class Dog extends Animal {
+  Dog(String name) : super(name); //super class adalah variabel referensi yang digunakan untuk merujuk objek kelas induk langsung/parent class. Ini digunakan untuk merujuk properti/var dan metode superclass 
+  String get noise => 'bark!';
+}
+
+/// Classes can implement other classes if they
+/// define all of the fields
+class Pikachu implements Animal {
+  String name = 'Pikachu';
+  String get noise => 'pika!';
+}
+
+void releaseAnimals(Iterable animals) {
+  animals.forEach((a) => print('${a.name} has been released: ${a.noise}'));
+}
+
+main() {
+  var barry = new Dog('Barry');
+  var pika = new Pikachu();
+  releaseAnimals([barry, pika]);
+}
+
+// $ dart inheritance.dart
+// Barry has been released: bark!
+// Pikachu has been released: pika!
