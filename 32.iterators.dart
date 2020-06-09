@@ -10,7 +10,7 @@ main() {
   var iter2 = iterable.map((n) => n*2).iterator; // iterasi n * 2 = 0x2, 1x2, 2x2
   // print('string : $iterable');
   while(iter2.moveNext()) {
-    print(iter2.current);
+    print(iter2.current); // 0, 2, 4
   }
 }
 
